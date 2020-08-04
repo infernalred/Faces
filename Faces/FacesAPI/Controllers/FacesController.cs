@@ -28,7 +28,7 @@ namespace FacesAPI.Controllers
         {
             Mat src = Cv2.ImDecode(image, ImreadModes.Color);
             src.SaveImage("image.jpg", new ImageEncodingParam(ImwriteFlags.JpegProgressive, 255));
-            var file = Path.Combine(Directory.GetCurrentDirectory(), "haarcascade_frontalface_default.xml");
+            var file = Path.Combine(Directory.GetCurrentDirectory(), "CascadeFile", "haarcascade_frontalface_default.xml");
             var faceCascade = new CascadeClassifier();
             faceCascade.Load(file);
             var faces = faceCascade.DetectMultiScale(src, 1.1, 6, HaarDetectionType.DoRoughSearch, new Size(60, 60));
